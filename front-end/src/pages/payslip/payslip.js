@@ -18,7 +18,7 @@ const Payslip = () => {
     // getting user
     const getuserdata = async () => {
       const response = await axios.get(
-        `https://inkprog-timesheets.herokuapp.com/api/signinup/singleuser/${userid}`
+        `http://localhost:4000/api/signinup/singleuser/${userid}`
       );
       const userdetail = response.data;
       // setvalue(userdetail);

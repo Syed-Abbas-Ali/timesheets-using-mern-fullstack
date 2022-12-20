@@ -55,11 +55,7 @@ const[newUser,setnewUser]=useState(
  else if(newUser.password.match(!upperCaseLetters)){
     alert("one CAPITAL letter required")
   }
-  // else if(newUser.password.length < 12){
-  //   alert("please enter correct password length should be more then 12 char")
-  // }  
-
-else{ await axios.post("https://inkprog-timesheets.herokuapp.com/api/signinup",newUser)
+else{ await axios.post("http://localhost:4000/api/signinup",newUser)
 
     .then(res=> 
    { let message=res.data.message;

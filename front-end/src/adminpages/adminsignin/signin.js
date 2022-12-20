@@ -28,7 +28,7 @@ const AdminSignin = ({setadmin}) => {
 
   const onSubmit=async(e)=>{
     e.preventDefault();
-   await axios.post("https://inkprog-timesheets.herokuapp.com/api/admin/login",logdata)
+   await axios.post("http://localhost:4000/api/admin/login",logdata)
     .then(res=> {
       alert(res.data.message)
       setadmin(res.data.user)

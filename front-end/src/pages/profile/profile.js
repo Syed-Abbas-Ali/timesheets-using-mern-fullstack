@@ -33,7 +33,7 @@ const Profile = () => {
     }
  else{
   await axios
-  .patch(`https://inkprog-timesheets.herokuapp.com/api/signinup/${userid}`, basicdetail)
+  .patch(`http://localhost:4000/api/signinup/${userid}`, basicdetail)
   .then((res) => {
     alert(res.data.message);
   });
@@ -47,7 +47,7 @@ getuserdata();
   const [fetchdata, setvalue] = useState({});
   const getuserdata = async () => {
     const response = await axios.get(
-      `https://inkprog-timesheets.herokuapp.com/api/signinup/singleuser/${userid}`
+      `http://localhost:4000/api/signinup/singleuser/${userid}`
     );
     const userdetail = response.data;
     setvalue(userdetail);
@@ -80,7 +80,7 @@ getuserdata();
 
   const countleaves = async () => {
     await axios
-      .post("https://inkprog-timesheets.herokuapp.com/api/signinup/leaves", leave)
+      .post("http://localhost:4000/api/signinup/leaves", leave)
       .then((res) => {
         setleaves(res.data.user);
       })
@@ -118,7 +118,7 @@ getuserdata();
   const handlesubmit = async (e) => {
     e.preventDefault();
     await axios.patch(
-      `https://inkprog-timesheets.herokuapp.com/api/signinup/updateimage/${userid}`,image
+      `http://localhost:4000/api/signinup/updateimage/${userid}`,image
     );
     getuserdata();
   };

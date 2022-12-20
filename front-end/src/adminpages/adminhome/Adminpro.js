@@ -12,7 +12,7 @@ const AdminPro = () => {
   const [details, setDetails] = useState(null);
   // get req function
   const getprofile = async () => {
-    const response = await axios.get("https://inkprog-timesheets.herokuapp.com/api/admin/allemployees");
+    const response = await axios.get("http://localhost:4000/api/admin/allemployees");
     const data = response.data;
     setDetails(data);
   };
@@ -44,14 +44,14 @@ const AdminPro = () => {
   const onSubmit=async()=>{
    
     console.log(idss)
-    await axios.post(`https://inkprog-timesheets.herokuapp.com/api/admin/payslip/upload/${idss}`,image)
+    await axios.post(`http://localhost:4000/api/admin/payslip/upload/${idss}`,image)
     .then(res=>console.log(res.data.message))
   }
   //-----------------------------------------------------------------------------------------------
 
   // Delete Request
   const deleteprofile = async (id) => {
-    await axios.delete(`https://inkprog-timesheets.herokuapp.com/api/admin/delete/${id}`)
+    await axios.delete(`http://localhost:4000/api/admin/delete/${id}`)
     .then(res=>alert(res.data.message))
     getprofile();
   };

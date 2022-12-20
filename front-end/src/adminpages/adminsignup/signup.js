@@ -28,7 +28,7 @@ const[newAdmin,setnewAdmin]=useState(
   
   const sendData=async(e)=>{
     e.preventDefault();
-  await axios.post("https://inkprog-timesheets.herokuapp.com/api/admin/register",newAdmin)
+  await axios.post("http://localhost:4000/api/admin/register",newAdmin)
     .then(res=> alert(res.data.message),
     )
     setnewAdmin(
@@ -64,8 +64,11 @@ const[newAdmin,setnewAdmin]=useState(
               <form onSubmit={sendData}>
                 <h2>REGISTRATION FORM</h2>
                 <input type='text'name='fullname' value={newAdmin.fullname} placeholder='Full Name' onChange={collectinfo} ></input>
+
                 <input type='email' name='email' value={newAdmin.email} placeholder='Email' onChange={collectinfo}></input>
+
                 <input type='password' name='password' value={newAdmin.password} placeholder='Password' onChange={collectinfo}></input>
+                
                 <h3>Already a member? <Link to="../signin"><span>Login</span></Link></h3>
                 <button type='submit'>Register</button>
               </form>

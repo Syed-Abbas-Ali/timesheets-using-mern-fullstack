@@ -19,7 +19,6 @@ const Leave = () => {
   for(let i=0 ;
     nofield.length<10-leaves.length;i++){
     nofield.push("item"+i)
-    // console.log(nofield)
   }
 
 // ---------------------------------------------------------------------------------
@@ -43,7 +42,7 @@ const Leave = () => {
 
 const submitleave=async(e)=>{
   e.preventDefault();
-  await axios.post("https://inkprog-timesheets.herokuapp.com/api/signinup/leave",leave)
+  await axios.post("http://localhost:4000/api/signinup/leave",leave)
   .then(res=>console.log(res.data.message))
   getleave()
 }
@@ -56,7 +55,7 @@ const submitleave=async(e)=>{
  
   // geting leave data
   const getleave=async()=>{
- await axios.post("https://inkprog-timesheets.herokuapp.com/api/signinup/leaves",leave)
+ await axios.post("http://localhost:4000/api/signinup/leaves",leave)
     .then(res=>{
       setleaves(res.data.user)
     })
